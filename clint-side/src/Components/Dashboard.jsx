@@ -16,6 +16,7 @@ import {
   useToast
 } from '@chakra-ui/react'
 import Navbar from './Navbar'
+import 'react-responsive-pagination/themes/classic.css';
 import ResponsivePagination from "react-responsive-pagination";
 import { useDispatch, useSelector } from 'react-redux'
 import { ADD_RESUME,SET_CURRENT_PAGE,ADD_NAME, ADD_PASSWORD, SET_DATA, SET_PAGES } from '../Redux/actionType'
