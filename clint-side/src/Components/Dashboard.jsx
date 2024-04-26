@@ -17,7 +17,7 @@ import {
 } from '@chakra-ui/react'
 import Navbar from './Navbar'
 import { useDispatch, useSelector } from 'react-redux'
-import { ADD_RESUME,ADD_NAME, ADD_PASSWORD, SET_DATA } from '../Redux/actionType'
+import { ADD_RESUME,ADD_NAME, ADD_PASSWORD, SET_DATA, SET_PAGES } from '../Redux/actionType'
 import axios from "axios"
 import ResumeCard from './ResumeCard'
 const Dashboard = () => {
@@ -66,12 +66,13 @@ const Dashboard = () => {
     }
   }
 
-  async function getData(){
+  async function getData(page){
     console.log(process.env.REACT_APP_HTTP);
     try {
-      const data = await axios.get(`https://resume-app-526c.onrender.com/details/all`);
+      const data = await axios.get(`https://resume-app-526c.onrender.com/details/all?page=${page}`);
       console.log(data)
-      dispatch({type:SET_DATA,payload:data.data});
+      dispatch({type:SET_PAGES,payload:data.data.pages})
+      dispatch({type:SET_DATA,payload:data.data.data});
     } catch (error) {
       toast({
         title: 'Error',
@@ -81,9 +82,13 @@ const Dashboard = () => {
     }
   }
 
+  async function handlePageChange(page) {
+    dispatch({ type: SET_CURRENT_PAGE, payload: page });
+  }
+
   useEffect(()=>{
-    getData();
-  },[])
+    getData(selector.currentPage);
+  },[selector.currentPage])
 
   return (
     <>
@@ -96,6 +101,13 @@ const Dashboard = () => {
         )):<></>
       }
     </Box>
+    <Box margin={"auto"} marginTop={"1rem"}>
+            <ResponsivePagination
+              total={selector.pages}
+              current={selector.currentPage}
+              onPageChange={(page) => handlePageChange(page)}
+            />
+          </Box>
     </>
   )
 }

@@ -77,8 +77,15 @@ detailRouter.delete('/:id', async function(req, res) {
 });
 
 detailRouter.get('/all', async function(req, res) {
+  const { page = 1, limit = 6 } = req.query;
+  const skip = (page - 1) * limit;
+
   try {
-    const allUsers = await userModel.findAll();
+    const allUsers = await userModel.findAll({
+      offset: skip,
+      limit: parseInt(limit),
+    });
+
     res.status(200).send(allUsers);
   } catch (error) {
     console.log(error.message);
