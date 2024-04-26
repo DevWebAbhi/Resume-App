@@ -16,8 +16,9 @@ import {
   useToast
 } from '@chakra-ui/react'
 import Navbar from './Navbar'
+import ResponsivePagination from "react-responsive-pagination";
 import { useDispatch, useSelector } from 'react-redux'
-import { ADD_RESUME,ADD_NAME, ADD_PASSWORD, SET_DATA, SET_PAGES } from '../Redux/actionType'
+import { ADD_RESUME,SET_CURRENT_PAGE,ADD_NAME, ADD_PASSWORD, SET_DATA, SET_PAGES } from '../Redux/actionType'
 import axios from "axios"
 import ResumeCard from './ResumeCard'
 const Dashboard = () => {

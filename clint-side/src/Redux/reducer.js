@@ -1,4 +1,4 @@
-import { ADD_NAME, ADD_PASSWORD, ADD_RESUME, SET_DATA } from "./actionType";
+import { ADD_NAME, ADD_PASSWORD, ADD_RESUME, SET_DATA,SET_PAGES,SET_CURRENT_PAGE } from "./actionType";
 
 const initialState = {
     name :null,resume:null,password:12345,data:[],pages:1,currentPage:1,
