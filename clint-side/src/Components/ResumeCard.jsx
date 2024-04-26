@@ -10,7 +10,7 @@ const ResumeCard = ({name,link,id,getData}) => {
     const toast = useToast();
     async function handleDelete(){
         try {
-            await axios.delete(`http://localhost:8080/details/${id}`)
+            await axios.delete(`https://resume-app-526c.onrender.com/details/${id}`)
             getData();
             toast({
                 title: 'Sucessfull',

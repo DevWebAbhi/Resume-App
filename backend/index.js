@@ -13,7 +13,7 @@ const {connect,sequelize} = require("./config/dbConfig");
 const PORT = process.env.PORT;
 
 app.use(cors({
-    origin: 'http://localhost:3000'
+    origin: 'https://resume-app-orpin-one.vercel.app'
   }));
 
 app.use("/files", express.static(__dirname + '/Resumes'));

@@ -49,7 +49,7 @@ const Dashboard = () => {
       formData.append('name', selector.name);
       formData.append('password', selector.password);
       console.log(formData, selector);
-      const post = await axios.post(`http://localhost:8080/details/upload`, formData);
+      const post = await axios.post(`https://resume-app-526c.onrender.com/details/upload`, formData);
       console.log(post);
       getData();
       toast({
@@ -69,7 +69,7 @@ const Dashboard = () => {
   async function getData(){
     console.log(process.env.REACT_APP_HTTP);
     try {
-      const data = await axios.get(`http://localhost:8080/details/all`);
+      const data = await axios.get(`https://resume-app-526c.onrender.com/details/all`);
       console.log(data)
       dispatch({type:SET_DATA,payload:data.data});
     } catch (error) {
