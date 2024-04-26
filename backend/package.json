@@ -9,6 +9,7 @@
     "node-qpdf": "^1.0.3",
     "nodemon": "^3.1.0",
     "pdf-lib": "^1.17.1",
+    "pdfkit": "^0.15.0",
     "sequelize": "^6.37.3"
   },
   "scripts": {

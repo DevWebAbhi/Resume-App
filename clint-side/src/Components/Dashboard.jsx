@@ -122,11 +122,6 @@ function Adddetail({dispatch,ADD_PASSWORD,selector,onOpen,initialRef,isOpen,fina
               <Input ref={initialRef} placeholder='Name' onChange={(e)=>{dispatch({type:ADD_NAME,payload:e.target.value})}} />
             </FormControl>
 
-            <FormControl>
-              <FormLabel>Resume Password</FormLabel>
-              <Input ref={initialRef} placeholder='Resume Password' onChange={(e)=>{dispatch({type:ADD_PASSWORD,payload:e.target.value})}} />
-            </FormControl>
-
             <FormControl mt={4}>
               <FormLabel>Upload Resume</FormLabel>
               <Input type='file' accept='pdf' onChange={handleFile}/>

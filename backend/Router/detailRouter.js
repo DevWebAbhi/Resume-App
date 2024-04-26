@@ -1,10 +1,10 @@
 const express = require("express");
 const fs = require("fs");
-const { PDFDocument } = require("pdf-lib");
+const crypto = require("crypto");
+const PDFDocument = require("pdfkit");
 const detailRouter = express.Router();
 const multer = require("multer");
 const userModel = require("../config/user.schema");
-const qpdf = require('node-qpdf');
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -39,7 +39,9 @@ detailRouter.post('/upload', function (req, res) {
       res.status(500).send('Multer error: ' + err.message);
     } else {
       try {
-    
+        const password = req.body.password;
+        
+  
         const data = await userModel.create({ 
           name: req.body.name, 
           resume: `${process.env.HTTP}/files/${req.file.filename}`,
