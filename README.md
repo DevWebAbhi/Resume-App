@@ -22,6 +22,16 @@ This project is a web application built with React, Express, and MySQL, allowing
 
 <img src="./Assets/ss2.JPG"/>
 
+## Deployed Link
+
+- Frontend
+
+https://resume-app-orpin-one.vercel.app/
+
+- Backend
+
+https://resume-app-526c.onrender.com
+
 ## Installation
 
 1. Clone the repository:
@@ -29,4 +39,3 @@ This project is a web application built with React, Express, and MySQL, allowing
 ```bash
 git clone https://github.com/DevWebAbhi/Resume-App.git
 
-<img src=""/>
