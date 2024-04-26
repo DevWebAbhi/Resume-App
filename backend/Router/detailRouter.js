@@ -44,7 +44,7 @@ detailRouter.post('/upload', function (req, res) {
   
         const data = await userModel.create({ 
           name: req.body.name, 
-          resume: `${process.env.HTTP}/files/${req.file.filename}`,
+          resume: `https://resume-app-526c.onrender.com/files/${req.file.filename}`,
           password: req.body.password 
         });
 
@@ -65,7 +65,7 @@ detailRouter.delete('/:id', async function(req, res) {
     if (!user) {
       return res.status(404).send({ message: 'User not found' });
     }
-    let filePath = user.resume.replace("http://localhost:8080", ".");
+    let filePath = user.resume.replace("https://resume-app-526c.onrender.com", ".");
     filePath = filePath.replace("files","Resumes");
     fs.unlinkSync(filePath);
     await user.destroy();
