@@ -67,7 +67,14 @@ detailRouter.delete('/:id', async function(req, res) {
     }
     let filePath = user.resume.replace("https://resume-app-526c.onrender.com", ".");
     filePath = filePath.replace("files","Resumes");
-    fs.unlinkSync(filePath);
+    
+    // Check if the file exists
+    if (fs.existsSync(filePath)) {
+      fs.unlinkSync(filePath); // Delete the file
+    } else {
+      console.log(`File not found at ${filePath}`);
+    }
+
     await user.destroy();
     res.status(200).send({ message: 'User and associated file deleted successfully' });
   } catch (error) {
