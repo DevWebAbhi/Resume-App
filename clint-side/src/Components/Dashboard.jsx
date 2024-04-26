@@ -53,7 +53,7 @@ const Dashboard = () => {
       console.log(formData, selector);
       const post = await axios.post(`https://resume-app-526c.onrender.com/details/upload`, formData);
       console.log(post);
-      getData();
+      getData(1);
       toast({
         title: 'Sucessfull',
         description: "Posted Sucessfully",
@@ -96,7 +96,7 @@ const Dashboard = () => {
     <>
     <Navbar onOpen={onOpen}/>
     <Adddetail dispatch = {dispatch} ADD_PASSWORD={ADD_PASSWORD} ADD_NAME={ADD_NAME} selector={selector} onClose={onClose} onOpen={onOpen} isOpen={isOpen} initialRef={initialRef} finalRef={finalRef} handleFile={handleFile} handleSubmit={handleSubmit}/>
-    <Box>
+    <Box minH={"70vh"}>
       {
         selector.data?selector.data.map((e,idx )=>(
           <ResumeCard key={e.id} getData={getData} name={e.name} link={e.resume} id={e.id}/>
