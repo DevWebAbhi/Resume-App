@@ -81,16 +81,26 @@ detailRouter.get('/all', async function(req, res) {
   const skip = (page - 1) * limit;
 
   try {
-    const allUsers = await userModel.findAll({
+    // Fetch users for the current page
+    const users = await userModel.findAll({
       offset: skip,
       limit: parseInt(limit),
     });
 
-    res.status(200).send(allUsers);
+    // Fetch total count of users
+    const totalCount = await userModel.count();
+
+    res.status(200).send({
+      message: "done",
+      data: users,
+      pages: Math.ceil(totalCount / limit), // Calculate total pages
+      totalCount: totalCount // Send total count of users
+    });
   } catch (error) {
     console.log(error.message);
     res.status(500).send({ message: "Internal server error" });
   }
 });
+
 
 module.exports = detailRouter;
