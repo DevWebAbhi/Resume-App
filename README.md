@@ -7,6 +7,7 @@ This project is a web application built with React, Express, and MySQL, allowing
 - **PDF Upload**: Users can upload their PDF resumes along with their names.
 - **Dashboard**: View uploaded PDF resumes in a dashboard.
 - **MySQL Database**: The application stores resume data in a MySQL database.
+- **Pagination**: There is multipage experience with pagination.
 
 ## Technologies Used
 
@@ -31,6 +32,10 @@ https://resume-app-orpin-one.vercel.app/
 - Backend
 
 https://resume-app-526c.onrender.com
+
+## Storage
+
+- There is free storage used from render web service (free disc storage version is temporary) for storing pdf files in      backend.
 
 ## Installation
 
